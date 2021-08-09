@@ -1,0 +1,33 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - "12"
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  slack: john-wqq3500:fr6xRhzj8SD53sg6A8HuzyIy
+  email:
+    recipients:
+      - john.davis.2015.03@gmail.com
+      - john.davis.2015@hotmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: b5ef73a5-da04-460c-9071-e2f8222b82a1 # desde heroku
+  app: platzi-store-backend7
+  on:
+    repo: johnpablo7/platzi-store-backend
