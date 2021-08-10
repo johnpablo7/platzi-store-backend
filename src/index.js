@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const productsApi = require('./routes/product');
-const receiptsApi = require('./routes/receipt');
+const productsApi = require("./routes/product");
+const receiptsApi = require("./routes/receipt");
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   let userInfo = req.header("user-agent");
   res.send(`UserInfo: ${userInfo}`);
 });
@@ -13,10 +13,11 @@ app.get('/', (req, res) => {
 productsApi(app);
 receiptsApi(app);
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     console.error("Error: ", err);
     return;
   }
+  console.log("Hola mundo!");
   console.log(`Listening http://localhost:${port}`);
 });
